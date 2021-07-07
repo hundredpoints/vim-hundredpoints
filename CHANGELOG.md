@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/hundredpoints/vim/compare/v1.0.2...v1.0.3) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix config loading ([47cec4c](https://github.com/hundredpoints/vim/commit/47cec4c39d65d3736af8f3a230e831547c769b65))
+
 ## [1.0.2](https://github.com/hundredpoints/vim/compare/v1.0.1...v1.0.2) (2021-07-07)
 
 
