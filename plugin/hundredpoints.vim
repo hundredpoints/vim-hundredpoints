@@ -72,7 +72,7 @@ let s:config = IniParser#Read(s:config_file)
 let s:default_config = get(s:config, "default", {})
 let s:default_configs = ['[default]', 'origin=https://hundredpoints.io', 'api=/api/graphql']
 
-let s:plugin_dir = resolve(expand('<sfile>:p') . "/../")
+let s:plugin_dir = simplify(resolve(expand('<sfile>:p:h') . "/../"))
 let s:cli_path = s:GetConfigSetting(s:default_settings, "cli_path", s:plugin_dir . "/node_modules/.bin/hundredpoints")
 
 let s:has_async = has('patch-7.4-2344') && exists('*job_start')
