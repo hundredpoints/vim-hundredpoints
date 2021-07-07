@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/hundredpoints/vim/compare/v1.0.3...v1.0.4) (2021-07-07)
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([3aba5fd](https://github.com/hundredpoints/vim/commit/3aba5fdc451b200dd882e9e35f43bc1183e49496))
+
 ## [1.0.3](https://github.com/hundredpoints/vim/compare/v1.0.2...v1.0.3) (2021-07-07)
 
 
