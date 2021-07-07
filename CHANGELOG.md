@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/hundredpoints/vim/compare/v1.0.1...v1.0.2) (2021-07-07)
+
+
+### Bug Fixes
+
+* fix plugin_dir path ([dfcebdc](https://github.com/hundredpoints/vim/commit/dfcebdc3ea553e9dffe8d392a5e883b4dac5fe1b))
+
 ## [1.0.1](https://github.com/hundredpoints/vim/compare/v1.0.0...v1.0.1) (2021-07-07)
 
 
