@@ -106,8 +106,8 @@ endfunction
 
 " Binary {{{
 function! s:UpdatePlugin()
-  silent execute "!cd " . s:plugin_dir . "../; npm ci;"
-call s:ExecuteCommand("-v", function('s:EchoMsg'))
+  silent execute "!cd " . s:plugin_dir . "; npm ci --production --ignore-scripts; npm rebuild;"
+  call s:ExecuteCommand("-v", function('s:EchoMsg'))
 endfunction
 
 function! s:ExecuteCommand(command, callback)
