@@ -14,29 +14,18 @@ if exists("g:loaded_hundredpoints")
 endif
 let g:loaded_hundredpoints = s:true
 
-
 let s:save_cpo = &cpo " save user coptions
 set cpo&vim " reset them to defaults
-
 
 " Backup wildignore before clearing it to prevent conflicts with expand()
 let s:wildignore = &wildignore
 if s:wildignore != ""
   set wildignore=""
 endif
-function! s:GetConfigSetting(section, key, ...)
 
-  if exists(a:0)
-    let s:default = a:0
-  else
-    let s:default = get(s:default_config, a:key)
-  endif
-
-  if has_key(s:config, a:section)
-    return get(s:config[a:section], a:key, s:default)
-  else
-    return s:default
-  endif
+function! s:GetConfigSetting(key, default)
+  let mergedConfig = extend(get(s:config, "default", {}), get(s:config, "vim", {}))
+  return get(mergedConfig, a:key, a:default)
 endfunction
 
 function! s:SetConfigSetting(section, key, value)
@@ -52,7 +41,6 @@ function! s:SetConfigSetting(section, key, value)
 
   call IniParser#Write(settings, s:config_file)
   let s:config = settings
-  let s:default_config = get(s:config, "default", {})
   return new_settings
 endfunction
 
@@ -69,11 +57,13 @@ let s:default_settings = "default"
 let s:config_file = s:home . '/.hundredpoints'
 let s:config_file_already_setup = s:false
 let s:config = IniParser#Read(s:config_file)
-let s:default_config = get(s:config, "default", {})
-let s:default_configs = ['[default]', 'origin=https://hundredpoints.io', 'api=/api/graphql']
 
 let s:plugin_dir = simplify(resolve(expand('<sfile>:p:h') . "/../"))
-let s:cli_path = s:GetConfigSetting(s:default_settings, "cli_path", s:plugin_dir . "/node_modules/.bin/hundredpoints")
+
+let s:cli_path = s:GetConfigSetting("cli_path", s:plugin_dir . "/node_modules/.bin/hundredpoints")
+
+echo s:cli_path
+
 
 let s:has_async = has('patch-7.4-2344') && exists('*job_start')
 let s:nvim_async = exists('*jobstart')
@@ -294,7 +284,6 @@ function! s:InitAndHandleActivity(is_write)
   endif
 
   call s:SetupDebugMode()
-  call s:SetupConfigFile()
 
   if s:logged_in
     call s:HandleActivity(a:is_write)
@@ -325,21 +314,13 @@ endfunction
 
 function! s:SetupDebugMode()
   if !s:debug_mode_already_setup
-    if s:GetConfigSetting('vim', 'debug') == 'true'
+    if s:GetConfigSetting('debug', 'false') == 'true'
       let s:debug = s:true
       call s:DebugMsg("debug is enabled")
     else
       let s:debug = s:false
     endif
     let s:debug_mode_already_setup = s:true
-  endif
-endfunction
-
-function! s:SetupConfigFile()
-  if !s:config_file_already_setup
-    if !filereadable(s:config_file)
-      call writefile(s:default_configs, s:config_file)
-    endif
   endif
 endfunction
 " }}}
