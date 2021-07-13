@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/hundredpoints/vim/compare/v1.0.4...v1.0.5) (2021-07-13)
+
+
+### Bug Fixes
+
+* remove debug message ([099f915](https://github.com/hundredpoints/vim/commit/099f915661f517e7fb84dcaa20d871de4529fdd1))
+
 ## [1.0.4](https://github.com/hundredpoints/vim/compare/v1.0.3...v1.0.4) (2021-07-07)
 
 
