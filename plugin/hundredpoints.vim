@@ -62,9 +62,6 @@ let s:plugin_dir = simplify(resolve(expand('<sfile>:p:h') . "/../"))
 
 let s:cli_path = s:GetConfigSetting("cli_path", s:plugin_dir . "/node_modules/.bin/hundredpoints")
 
-echo s:cli_path
-
-
 let s:has_async = has('patch-7.4-2344') && exists('*job_start')
 let s:nvim_async = exists('*jobstart')
 
