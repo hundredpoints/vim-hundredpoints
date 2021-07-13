@@ -301,8 +301,6 @@ function! s:VerifyLogin(cli_response)
     return
   endif
 
-  echo response
-
   if !has_key(response, "installedBy")
     return
   endif
