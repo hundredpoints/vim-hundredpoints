@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/hundredpoints/vim/compare/v1.0.6...v1.0.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* improve update output ([df5d263](https://github.com/hundredpoints/vim/commit/df5d263a94816b894394fc86660d8ed249815f26))
+
 ## [1.0.6](https://github.com/hundredpoints/vim/compare/v1.0.5...v1.0.6) (2021-07-13)
 
 
