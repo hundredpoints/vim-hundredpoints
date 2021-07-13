@@ -94,7 +94,10 @@ endfunction
 " Binary {{{
 function! s:UpdatePlugin()
   silent execute "!cd " . s:plugin_dir . "; npm ci --production --ignore-scripts; npm rebuild;"
-  call s:ExecuteCommand("-v", function('s:EchoMsg'))
+  let package = json_decode(readfile(s:plugin_dir . "/package.json"))
+  let output_prefix = 'Updated to version: ' . package["version"] . ' CLI version: '
+
+  call s:ExecuteCommand("-v", { output -> s:EchoMsg(output_prefix . output) })
 endfunction
 
 function! s:ExecuteCommand(command, callback)
