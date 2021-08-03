@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/hundredpoints/vim/compare/v1.0.7...v1.0.8) (2021-08-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @hundredpoints/cli to v1.1.1 ([e12b6e9](https://github.com/hundredpoints/vim/commit/e12b6e959151381c2e64ba1c8778b5a5901e790e))
+
 ## [1.0.7](https://github.com/hundredpoints/vim/compare/v1.0.6...v1.0.7) (2021-07-13)
 
 
